@@ -52,11 +52,71 @@ typeface = {
   }
 }
 
+head = {
+  mega: {
+    size: 4,
+    weight: hairline
+    },
+  headline: {
+    size: 3,
+    weight: normal
+  },
+  sub: {
+    size: 1,
+    weight: bold
+  }
+}
+
+colors = {
+  black: #000
+  charcoal: #333,
+  graphite: #ccc,
+  silver: #f5f5f5,
+  white: #fff,
+  red: #f00,
+  yellow: #ff0,
+  gold: #f1c40f,
+  magenta: magenta,
+  mint: #00f5a3,
+  slime: #67ff22,
+  watermellon: #f63752
+}
+
+// Base typography vars
+$line-height = 1.5
+$base-font-size = 20px
+$baseline-height = round($base-font-size * $line-height)
+$baseline-color = rgba(magenta, 0.1)
+$max-width = 800px
+
+// Snap to baseline mixin
+snap-to-baseline($aspect-ratio)
+  $width-per-baseline = $baseline-height * $aspect-ratio
+  for $i in (1)..((round($max-width / $width-per-baseline)) - 1)
+    &[min-width~="{round($width-per-baseline * $i)}"]
+      height: round($baseline-height * $i)
+
+// Smart spacing mixin
+$inside = padding
+$outside = margin
+$text = margin
+
+spacing($space-type, $top = 1, $bottom = 1, $multiplier= 1)
+  {$space-type}-top: ($baseline-height * $top)
+  {$space-type}-bottom: ($baseline-height * $bottom)
+  line-height: ($multiplier * $baseline-height)
+
+
+headings($type, $color= inherit, $bg= inherit)
+  background-color: $bg
+  color: $color
+  font-size: head[$type].size rem
+  font-weight: head[$type].weight
 
 
 // variables!
 
-primary = #00F3A5
+$primary = colors.watermellon
 
 slide_width = 640px
 slide_height = 480px
@@ -74,9 +134,10 @@ bullet_transition_easing = ease
 spacer_gif = 'data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7'
 
 
+
 html
   box-sizing: border-box
-  font-size 18px
+  font-size: $base-font-size
   line-height: 1.5
 
 *,
@@ -85,7 +146,29 @@ html
   box-sizing: inherit
 
 body
-  font-family: $slab
+  color: colors.graphite
+  font-family: typeface.slab.name
+  line-height: $line-height
+  background-color: #fff
+  background-image: linear-gradient(transparent, transparent $baseline-height - 1px, $baseline-color 1px)
+  background-size: auto $baseline-height
+
+
+h2
+  headings('mega')
+  spacing($text, 0, 1, 3)
+
+h3
+  headings('headline')
+  spacing($text, 0, 1, 2)
+
+h4
+  headings('sub')
+
+
+p, ul, ol, pre
+  spacing($outside, 0, 1)
+
 
 article
   transition: all .3s ease
@@ -104,7 +187,7 @@ article
       position: static
 
     &.green
-      background: primary
+      background:  $primary
     &.white
       background: white
 
@@ -210,8 +293,8 @@ article
   transition: width .6s ease
   position: absolute
   height: 100%
-  background: primary
-  //background: darken(primary, 20%)
+  background:  $primary
+  //background: darken( $primary, 20%)
 
   // bespoke-state styles
 
@@ -230,7 +313,7 @@ pre
     text-shadow: none !important
 
 a
-  color: primary
+  color:  $primary
   text-decoration: none
   &.black
     color: black
@@ -238,4 +321,4 @@ a
     color: rgba(0,0,0,0.7)
   .bespoke-slide.light h1 &
 
-    color: primary
+    color:  $primary
