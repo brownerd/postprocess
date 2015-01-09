@@ -6,6 +6,8 @@ var pkg = require('./package.json'),
     rename = require('gulp-rename'),
     connect = require('gulp-connect'),
     browserify = require('gulp-browserify'),
+    browserSync = require('browser-sync'),
+    reload = browserSync.reload,
     uglify = require('gulp-uglify'),
     jade = require('gulp-jade'),
     stylus = require('gulp-stylus'),
@@ -18,6 +20,7 @@ var pkg = require('./package.json'),
     path = require('path'),
     isDist = process.argv.indexOf('serve') === -1;
 
+
 gulp.task('js', ['clean:js'], function() {
   return gulp.src('src/scripts/main.js')
     .pipe(isDist ? through() : plumber())
@@ -25,7 +28,7 @@ gulp.task('js', ['clean:js'], function() {
     .pipe(isDist ? uglify() : through())
     .pipe(rename('build.js'))
     .pipe(gulp.dest('dist/build'))
-    .pipe(connect.reload());
+    .pipe(reload({stream:true}));
 });
 
 gulp.task('html', ['clean:html'], function() {
@@ -34,7 +37,7 @@ gulp.task('html', ['clean:html'], function() {
     .pipe(jade({ pretty: true }))
     .pipe(rename('index.html'))
     .pipe(gulp.dest('dist'))
-    .pipe(connect.reload());
+    .pipe(reload({stream:true}));
 });
 
 gulp.task('css', ['clean:css'], function() {
@@ -50,13 +53,13 @@ gulp.task('css', ['clean:css'], function() {
     .pipe(isDist ? csso() : through())
     .pipe(rename('build.css'))
     .pipe(gulp.dest('dist/build'))
-    .pipe(connect.reload());
+    .pipe(reload({stream:true}));
 });
 
 gulp.task('images', ['clean:images'], function() {
   return gulp.src('src/images/**/*')
     .pipe(gulp.dest('dist/images'))
-    .pipe(connect.reload());
+    .pipe(reload({stream:true}));
 });
 
 gulp.task('clean', function() {
@@ -93,6 +96,16 @@ gulp.task('connect', ['build'], function(done) {
   opn('http://localhost:8080', done);
 });
 
+// browser-sync task for starting the server.
+gulp.task('browser-sync', ['build'], function() {
+  browserSync({
+    server: {
+      //port: ####,
+      baseDir: 'dist'
+    }
+  });
+});
+
 gulp.task('watch', function() {
   gulp.watch('src/**/*.jade', ['html']);
   gulp.watch('src/styles/**/*.styl', ['css']);
@@ -108,5 +121,5 @@ gulp.task('deploy', ['build'], function(done) {
 });
 
 gulp.task('build', ['js', 'html', 'css', 'images']);
-gulp.task('serve', ['connect', 'watch']);
+gulp.task('serve', ['browser-sync', 'watch']);
 gulp.task('default', ['build']);
