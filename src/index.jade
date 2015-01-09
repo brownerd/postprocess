@@ -4,17 +4,22 @@ html
     meta(charset='utf-8')
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     title Post Process
-
+      
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,900italic,700italic,400italic,100italic')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Alfa+Slab+One')
+    
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
   body
 
     article
 
-      section
+      section(data-bespoke-state="green")
         h1 Post Process
 
-      section
+      section(data-bespoke-backdrop="super")
         h2 Keyboard Interaction
         h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
 
@@ -33,6 +38,26 @@ html
           li Bullet 1
           li Bullet 2
           li Bullet 3
+          .bullet GRUNT 0.4
+          .bullet +
+          .bullet BOWER
+          .bullet +
+          .bullet YEOMAN
+
+      section
+        h2.bullet Streaming Builds
+        pre.bullet.language-javascript
+          code.
+            gulp.src('src/foobar.styl') // <-- Read from FS
+            
+            // In memory transforms:
+            .pipe(stylus())
+              .pipe(rename({ ext: 'css' }))
+                .pipe(autoprefixer())
+                  .pipe(cssmin())
+                    .pipe(header('/* Copyright 2014 */'))
+                      
+                      .pipe(gulp.dest('dist')) // <-- Write to FS
 
       section
         h2 Syntax Highlighting

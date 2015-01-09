@@ -7,6 +7,7 @@ var bespoke = require('bespoke'),
   backdrop = require('bespoke-backdrop'),
   scale = require('bespoke-scale'),
   hash = require('bespoke-hash'),
+  state = require('bespoke-state'),
   progress = require('bespoke-progress');
 
 // Bespoke.js
@@ -18,6 +19,7 @@ bespoke.from('article', [
   backdrop(),
   scale(),
   hash(),
+  state(),
   progress()
 ]);
 
@@ -25,4 +27,3 @@ bespoke.from('article', [
 // This is actually loaded from "bower_components" thanks to
 // debowerify: https://github.com/eugeneware/debowerify
 require('prism');
-
