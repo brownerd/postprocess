@@ -18,61 +18,58 @@ html
 
       section(data-bespoke-state="theme--watermellon")
         h2 PostCSS
-        h4 post process your css fuckers
+        h4 Don't 
+          i pre-process 
+          | the 
+          i post-process
+          
+        //h4 Let your Pre-processor go home early
+        //h4 Give your Sass a day off
+        //h4 Don't pre-process the post-process
 
-      section(data-bespoke-state="theme--yellow")
-        h2 Keyboard Interactions
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
 
-      section(data-bespoke-state="theme--green")
-        h2 Tool for ya fools
-        p 
-          | Autoprefixer, 
-          | BEM linter, 
-          | CSS MQPacker, 
-          | css2modernizr, 
-          | cssnext, 
-          | CSSWring, 
-          | data-separator, 
-          | pixrem, 
-          | webpcss, 
-          | Pleeease, 
-          | Pleeease Filters, 
-          | RTLCSS, 
-          | CSS Byebye, 
-          | postcss-epub, 
-          | doiuse, 
-          | postcss-assets, 
-          | ACSS, 
-          | CSS Grace.
-
-      section(data-bespoke-state="theme--cyan")
-        h2 Responsive Slides
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
-
-      section
-        h2 Bullet List
-        h3.bullet Powered by <a href="https://github.com/markdalgleish/bespoke-bullets">bespoke-bullets</a>
+      section(data-bespoke-state="theme--white")
+        h3 These are post processes:
         ul
-          li Bullet 1
-          li Bullet 2
-          li Bullet 3
-          .bullet GRUNT 0.4
-          .bullet +
-          .bullet BOWER
-          .bullet +
-          .bullet YEOMAN
+          li.bullet Minification - CSSWring
+          li.bullet Browser prefixing - Autoprefixer
+          li.bullet REM to px - Pixrem
+          li.bullet Streamlining media queries - CSS MQPacker
+          li.bullet Can I Use? - Do I use
+          li.bullet CSS 3 polyfills for IE - CSS Grace
+          li.bullet CSS4 fixes - cssnext
+          li.bullet More coming
 
-      section
-        h2.bullet Streaming Builds
-        pre.bullet.language-javascript
+
+      section(data-bespoke-state="theme--watermellon")
+        h2 Wicked Easy
+        h3 Just use 
+          a(href='http://pleeease.io') Pleeease
+          
+        pre.language-bash
           code.
-            gulp.src('src/foobar.styl') // <-- Read from FS
+            $ npm install -g pleeease
             
-            // In memory transforms:
-            .pipe(stylus())
-              .pipe(rename({ ext: 'css' }))
-                .pipe(autoprefixer())
+        pre.language-bash
+          code.
+            $ pleeease watch
+
+
+      section(data-bespoke-state="theme--dark")
+        h2 Or, make your own
+
+
+      section(data-bespoke-state="theme--red")
+        h2
+          a(href='http://gulpjs.com/') Gulp 
+          | time fuckers!
+        
+        pre.language-bash
+          code.
+            $ npm install --global gulp
+      
+      section
+        h2 Code time
                   
 
       section

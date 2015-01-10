@@ -73,7 +73,8 @@ colors = {
   slime: #67ff22,
   watermellon: #f63752,
   cyan: #46aeff,
-  green: #2BB673
+  green: #2BB673,
+  red: red
 }
 
 // Base typography vars
@@ -166,8 +167,12 @@ pre
     text-shadow: none !important
 
 a
-  color:  $primary
-  text-decoration: none
+  color: inherit
+  text-decoration: underline
+
+  // &:hover
+  //   color: invert(inherit)
+
   &.black
     color: black
   .bespoke-slide.light &
@@ -195,11 +200,26 @@ article
 
     &.theme
 
+      &--white
+        background-color: colors.white
+
+        h2, h3
+          color: colors.charcoal
+
+        p, li
+          color: colors.graphite
+
+        h4
+          color: colors.graphite
+
       &--watermellon
         background-color: colors.watermellon
 
         h2, h3, h4
           color: colors.yellow
+
+        p, li
+          color: colors.graphite
 
       &--yellow
         background-color: colors.yellow
@@ -207,17 +227,62 @@ article
         h2, h3, h4
           color: colors.watermellon
 
+        p, li
+          color: colors.graphite
+
       &--green
         background-color: colors.green
 
         h2, h3, h4
           color: colors.yellow
 
+        p, li
+          color: colors.graphite
+
       &--cyan
         background-color: colors.cyan
 
         h2, h3, h4
           color: colors.yellow
+
+        p, li
+          color: colors.graphite
+
+      &--gray
+        background-color: colors.graphite
+
+        h2, h3, h4
+          color: colors.watermellon
+
+        p, li
+          color: colors.charcoal
+
+      &--dark
+        background-color: colors.charcoal
+
+        h2, h3, h4
+          color: colors.graphite
+
+        p
+          color: colors.silver
+
+      &--red
+        background-color: colors.red
+
+        h2, h3, h4
+          color: colors.white
+
+        p
+          color: colors.graphite
+
+      &--mint
+          background-color: colors.mint
+
+          h2, h3, h4
+          color: colors.watermellon
+
+          p
+          color: colors.charcoal
 
 .bespoke-slide
   transition:
@@ -288,6 +353,7 @@ article
 
 .bespoke-bullet-active
   opacity: 1
+  text-align: left
 
 // bespoke-scale styles
 .bespoke-scale-parent
