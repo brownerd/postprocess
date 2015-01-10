@@ -16,15 +16,15 @@ html
 
     article
 
-      section(data-bespoke-state="green")
+      section(data-bespoke-state="theme--watermellon")
         h2 PostCSS
-        h3 post process your css fuckers
+        h4 post process your css fuckers
 
-      section(data-bespoke-backdrop="super")
+      section(data-bespoke-state="theme--yellow")
         h2 Keyboard Interactions
         h3 Powered by <a href="https://github.com/markdalgleish/bespoke-keys">bespoke-keys</a>
 
-      section.superd
+      section(data-bespoke-state="theme--green")
         h2 Tool for ya fools
         p 
           | Autoprefixer, 
@@ -46,7 +46,7 @@ html
           | ACSS, 
           | CSS Grace.
 
-      section
+      section(data-bespoke-state="theme--cyan")
         h2 Responsive Slides
         h3 Powered by <a href="https://github.com/markdalgleish/bespoke-scale">bespoke-scale</a>
 
@@ -73,14 +73,10 @@ html
             .pipe(stylus())
               .pipe(rename({ ext: 'css' }))
                 .pipe(autoprefixer())
-                  .pipe(cssmin())
-                    .pipe(header('/* Copyright 2014 */'))
-                      
-                      .pipe(gulp.dest('dist')) // <-- Write to FS
+                  
 
       section
-        h2 Syntax Highlighting
-        h3 Powered by <a href="http://twitter.com/LeaVerou">Lea Verou</a>'s <a href="https://github.com/LeaVerou/prism">Prism</a>
+        h2 Syntax
         pre
           code.language-javascript.
             bespoke.from('article', [

@@ -11,7 +11,7 @@ var pkg = require('./package.json'),
     uglify = require('gulp-uglify'),
     jade = require('gulp-jade'),
     stylus = require('gulp-stylus'),
-    nib = require('nib'),
+    //nib = require('nib'),
     autoprefixer = require('gulp-autoprefixer'),
     csso = require('gulp-csso'),
     through = require('through'),
@@ -44,7 +44,7 @@ gulp.task('css', ['clean:css'], function() {
   return gulp.src('src/styles/main.styl')
     .pipe(isDist ? through() : plumber())
     .pipe(stylus({
-      use: nib(),
+      //use: nib(),
       // Allow CSS to be imported from node_modules and bower_components
       'include css': true,
       'paths': ['./node_modules', './bower_components']
