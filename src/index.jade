@@ -16,7 +16,7 @@ html
 
     article
 
-      section(data-bespoke-state="theme--watermellon")
+      section(data-bespoke-state="theme--watermellon")(data-bespoke-hash='postcss')
         h2 PostCSS
         h4 Don't 
           i pre-process 
@@ -28,8 +28,17 @@ html
         //h4 Don't pre-process the post-process
 
 
-      section(data-bespoke-state="theme--white")
-        h3 These are post processes:
+      section(data-bespoke-state="theme--mint")(data-bespoke-hash='pre-and-post-processors')
+        h4.bold Pre-process (Sass, LESS, Stylus or Vanilla CSS)
+        p.hairline Write CSS faster with logic and power
+        h4.bold Post-process
+        p.hairline Clean up where your compiler left off
+
+
+      section(data-bespoke-state="theme--white")(data-bespoke-hash='post-processing-examples')
+        h3 These are 
+          br 
+          | post-processes:
         ul
           li.bullet Minification - CSSWring
           li.bullet Browser prefixing - Autoprefixer
@@ -38,10 +47,10 @@ html
           li.bullet Can I Use? - Do I use
           li.bullet CSS 3 polyfills for IE - CSS Grace
           li.bullet CSS4 fixes - cssnext
-          li.bullet More coming
+          li.bullet More coming!
 
 
-      section(data-bespoke-state="theme--watermellon")
+      section(data-bespoke-state="theme--watermellon")(data-bespoke-hash='pleeease')
         h2 Wicked Easy
         h3 Just use 
           a(href='http://pleeease.io') Pleeease
@@ -54,12 +63,11 @@ html
           code.
             $ pleeease watch
 
-
-      section(data-bespoke-state="theme--dark")
+      section(data-bespoke-state="theme--dark")(data-bespoke-hash='diy')
         h2 Or, make your own
 
 
-      section(data-bespoke-state="theme--red")
+      section(data-bespoke-state="theme--red")(data-bespoke-hash='gulp')
         h2
           a(href='http://gulpjs.com/') Gulp 
           | time fuckers!
@@ -68,37 +76,44 @@ html
           code.
             $ npm install --global gulp
       
-      section
-        h2 Code time
-                  
+      section(data-bespoke-state="theme--mint")(data-bespoke-hash='gulpfile')
+        h2 gulpfile.js
+        pre.language-javascript
+          code.
+            var sass = require('gulp-ruby-sass');
+            var autoprefixer = require('gulp-autoprefixer');
+            
+            gulp.task('styles', function() {
+              return gulp.src('app/styles/main.scss')
+                .pipe(sass())
+                .pipe(autoprefixer({browsers: ['last 3 versions']}))
+                .pipe(gulp.dest('dist/styles'));
+            });
 
-      section
-        h2 Syntax
-        pre
-          code.language-javascript.
-            bespoke.from('article', [
-              classes(),
-              keys(),
-              touch(),
-              bullets('li, .bullet')
-            ]);
-
-      section(data-bespoke-hash='named-route')
-        h2 Named Route
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-hash">bespoke-hash</a>
-        p Look up! This route has been named with a <em>'data-bespoke-hash'</em> attribute.
+      
+      section(data-bespoke-hash='performance')
+        h2 Performance
+        ul
+          li PostCSS  36 ms
+          li libsass  109 ms
+          li Less     150 ms
+          li Stylus   283 ms
+          li Sass     1153 ms
+          
+        p [Source](http://ai.github.io/about-postcss/en/?full#36)
 
       section.emphatic-text(data-bespoke-backdrop='emphatic')
         h2 Emphatic Slide!
         h3 Powered by <a href="https://github.com/markdalgleish/bespoke-backdrop">bespoke-backdrop</a>
 
       section
-        h2.bullet Just the beginning...
-        br
+        h2 Learn more...
         ul
-          li Edit <a href="http://jade-lang.com/">Jade</a> markup in <em>'src/index.jade'</em>
-          li Edit <a href="http://learnboost.github.io/stylus/">Stylus</a> styles in <em>'src/styles/main.styl'</em>
-          li Edit JavaScript in <em>'src/scripts/main.js'</em>
+          li [CSS pre- vs. post-processing](http://twin.github.io/2014/09/css-pre-vs-post-processing/)
+          li [CSS Post-Processing With Pleeease](http://www.sitepoint.com/css-post-processing-pleeease/)
+          li [Pleeease play](http://pleeease.io/play/)
+          li [PostCSS: the Future after Sass and LESS](http://ai.github.io/about-postcss/en/)
+          li 
         br
         ul
           li
