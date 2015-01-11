@@ -60,7 +60,7 @@ headings($type)
 
 // Color object
 colors = {
-  black: #000
+  black: #000,
   charcoal: #333,
   graphite: #ccc,
   silver: #f5f5f5,
@@ -75,8 +75,8 @@ colors = {
   cyan: #46aeff,
   green: #2BB673,
   red: red,
-  cheese: #FCFC68,
-
+  butter: #FFFCAD,
+  eggplant: #6E019D
 }
 
 // Base typography vars
@@ -386,7 +386,7 @@ article
 // bespoke-state styles
 .emphatic,
 .emphatic .bespoke-slide
-  background: $slide_background
+  background: colors.butter
 
 // prism styles
 
@@ -586,3 +586,116 @@ pre[class*="language-"].line-numbers code
 
 pre[class*="language-"].line-numbers .line-numbers-rows
   left: 0
+
+
+
+// http://evil-icons.io/?utm_source=postcss-wsd
+
+// ei-archive
+
+// Archive Arrow down
+// Arrow left
+// Arrow right
+// Arrow u
+// Bell
+// Calendar
+// Cart
+// Chart
+// Check
+// Chevron down
+// Chevron left
+// Chevron right
+// Chevron up
+// Clock
+// Close o
+// Close
+// Comment
+// Credit card
+// Envelope
+// Exclamation
+// External link
+// Eye
+// Gear
+// Heart
+// Image
+// Like
+// Link
+// Location
+// Lock
+// Minus
+// Navicon
+// Paperclip
+// Pencil
+// Play
+// Plus
+// Pointer
+// Question
+// Redo
+// Refresh
+// Retweet
+// Facebook
+// Github
+// Google plus
+// Instagram
+// Linkedin
+// Twitter
+// Search
+// Share apple
+// Share google
+// Spinner 2
+// Spinner 3
+// Spinner
+// Star
+// Tag
+// Trash
+// Trophy
+// Undo
+// Unlock
+// User
+
+@keyframes spin
+  100%
+    transform rotate(360deg)
+
+
+.icon
+  position relative
+  display inline-block
+  width 25px
+  height 25px
+  overflow hidden
+
+.icon__cnt
+  width 100%
+  height 100%
+  background inherit
+  fill inherit
+
+.icon--m
+  width 50px
+  height 50px
+
+.icon--l
+  width 100px
+  height 100px
+
+.icon--xl
+  width 150px
+  height 150px
+
+.icon--xxl
+  width 200px
+  height 200px
+
+.icon__spinner
+  position absolute
+  top 0
+  left 0
+  width 100%
+  height 100%
+
+.icon--ei-spinner .icon__spinner, .icon--ei-spinner-2 .icon__spinner
+  animation spin 1s steps(12) infinite
+
+.icon--ei-spinner-3 .icon__spinner
+  animation spin 1.5s linear infinite

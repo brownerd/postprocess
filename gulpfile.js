@@ -21,12 +21,6 @@ var pkg = require('./package.json'),
     isDist = process.argv.indexOf('serve') === -1,
     evilIcons = require("gulp-evil-icons");
 
-gulp.task('default', function () {
-  return gulp.src('src/index.html')
-  .pipe(evilIcons())
-  .pipe(gulp.dest('build'));
-});
-
 gulp.task('js', ['clean:js'], function() {
   return gulp.src('src/scripts/main.js')
     .pipe(isDist ? through() : plumber())
@@ -41,6 +35,7 @@ gulp.task('html', ['clean:html'], function() {
   return gulp.src('src/index.jade')
     .pipe(isDist ? through() : plumber())
     .pipe(jade({ pretty: true }))
+    .pipe(evilIcons())
     .pipe(rename('index.html'))
     .pipe(gulp.dest('dist'))
     .pipe(reload({stream:true}));
