@@ -18,8 +18,14 @@ var pkg = require('./package.json'),
     opn = require('opn'),
     ghpages = require('gh-pages'),
     path = require('path'),
-    isDist = process.argv.indexOf('serve') === -1;
+    isDist = process.argv.indexOf('serve') === -1,
+    evilIcons = require("gulp-evil-icons");
 
+gulp.task('default', function () {
+  return gulp.src('src/index.html')
+  .pipe(evilIcons())
+  .pipe(gulp.dest('build'));
+});
 
 gulp.task('js', ['clean:js'], function() {
   return gulp.src('src/scripts/main.js')
@@ -87,14 +93,14 @@ gulp.task('clean:images', function() {
     .pipe(rimraf());
 });
 
-gulp.task('connect', ['build'], function(done) {
-  connect.server({
-    root: 'dist',
-    livereload: true
-  });
-
-  opn('http://localhost:8080', done);
-});
+// gulp.task('connect', ['build'], function(done) {
+//   connect.server({
+//     root: 'dist',
+//     livereload: true
+//   });
+//
+//   opn('http://localhost:8080', done);
+// });
 
 // browser-sync task for starting the server.
 gulp.task('browser-sync', ['build'], function() {
