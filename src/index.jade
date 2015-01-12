@@ -23,7 +23,6 @@ html
           | the 
           i post-process
           
-        icon(name="ei-eye" size="l")
           
         //h4 Let your Pre-processor go home early
         //h4 Give your Sass a day off
@@ -48,7 +47,7 @@ html
           li.bullet Streamlining media queries - CSS MQPacker
           li.bullet Can I Use? - Do I use
           li.bullet CSS 3 polyfills for IE - CSS Grace
-          li.bullet CSS4 fixes - cssnext
+          li.bullet CSS4 - cssnext
           li.bullet More coming!
 
 
@@ -66,7 +65,7 @@ html
             $ pleeease watch
 
       section(data-bespoke-state="theme--dark" data-bespoke-hash='diy')
-        h2 Or, make your own
+        h2 Or, make your own...
 
 
       section(data-bespoke-state="theme--red" data-bespoke-hash='gulp')
@@ -96,13 +95,14 @@ html
       section(data-bespoke-hash='performance')
         h2 Performance
         ul
-          li PostCSS  36 ms
-          li libsass  109 ms
-          li Less     150 ms
-          li Stylus   283 ms
           li Sass     1153 ms
+          li Stylus   283 ms
+          li Less     150 ms
+          li libsass  109 ms
+          li PostCSS  36 ms
           
-        p [Source](http://ai.github.io/about-postcss/en/?full#36)
+        p
+          a(href="http://ai.github.io/about-postcss/en/?full#36") Source
 
       section.emphatic-text(data-bespoke-backdrop='emphatic')
         h2 Emphatic Slide!
@@ -111,15 +111,46 @@ html
       section
         h2 Learn more...
         ul
-          li [CSS pre- vs. post-processing](http://twin.github.io/2014/09/css-pre-vs-post-processing/)
-          li [CSS Post-Processing With Pleeease](http://www.sitepoint.com/css-post-processing-pleeease/)
-          li [Pleeease play](http://pleeease.io/play/)
-          li [PostCSS: the Future after Sass and LESS](http://ai.github.io/about-postcss/en/)
           li 
-        br
-        ul
+            a(href="http://twin.github.io/2014/09/css-pre-vs-post-processing/") CSS pre- vs. post-processing
+          li 
+            a(href="http://www.sitepoint.com/css-post-processing-pleeease/") CSS Post-Processing With Pleeease
+          li 
+            a(href="http://pleeease.io/play/") Pleeease play
+          li 
+            a(href="http://ai.github.io/about-postcss/en/") PostCSS: the Future after Sass and LESS
+          li 
+            a(href="http://www.sitepoint.com/introduction-gulp-js/") Introduction to Gulp JS
           li
-            strong Enjoy! :)
-            a(href='http://twitter.com/markdalgleish')  -@markdalgleish
+            a(href="http://sass-guidelin.es/") Sass Guidelines
+            
+      section
+        h2 Colophone
+        ul
+          li 
+            icon(name="ei-arrow-down" size="s") 
+            a(href="http://github.com/brownerd/postprocess") Source code
+          li 
+            icon(name="ei-sc-github" size="s") 
+            a(href="https://github.com/markdalgleish/bespoke.js") Bespoke.js
+          li 
+            icon(name="ei-heart" size="s") 
+            a(href="http://evil-icons.io/") Evil Icons
+          li 
+            icon(name="ei-sc-github" size="s") 
+            a(href="http://gulpjs.com/") Gulp
+          li 
+            icon(name="ei-sc-github" size="s") 
+            a(href="http://www.browsersync.io/") Browser-Sync
+          li 
+            icon(name="ei-sc-github" size="s") 
+            a(href="http://jade-lang.com/") Jade
+          li 
+            icon(name="ei-sc-github" size="s") 
+            a(href="http://learnboost.github.io/stylus/") Stylus
+            
+          li
+            icon(name="ei-sc-github" size="s")
+            a(href="http://www.google.com/fonts/specimen/Roboto+Slab") Roboto Slab
 
     script(src='build/build.js')
