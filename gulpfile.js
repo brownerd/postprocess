@@ -35,7 +35,7 @@ gulp.task('html', ['clean:html'], function() {
   return gulp.src('src/index.jade')
     .pipe(isDist ? through() : plumber())
     .pipe(jade({ pretty: true }))
-    //.pipe(evilIcons())
+    .pipe(evilIcons())
     .pipe(rename('index.html'))
     .pipe(gulp.dest('dist'))
     .pipe(reload({stream:true}));
