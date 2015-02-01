@@ -5,10 +5,10 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     title Post Process
 
-    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,900italic,700italic,400italic,100italic')
+    //link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,900italic,700italic,400italic,100italic')
     link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700')
-    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700')
-    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Alfa+Slab+One')
+    //link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700')
+    //link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Alfa+Slab+One')
 
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
@@ -22,40 +22,68 @@ html
           i pre-process 
           | the 
           i post-process
-        icon(name="ei-arrow-down" size="s")
-        icon(name="ei-sc-github" size="s") 
+
+      section(data-bespoke-state="theme--yellow" data-bespoke-hash='postcss')
+        h2 Welcome fuckers
 
       section(data-bespoke-state="theme--mint" data-bespoke-hash='pre-and-post-processors')
-        h4.bold Pre-process (Sass, LESS, Stylus or Vanilla CSS)
-        p.hairline Write CSS faster with logic and power
-        h4.bold Post-process
-        p.hairline Clean up where your compiler left off
+        h3.bold The 
+          i pre
+          |-process:
 
+        ul
+          li Write less code
+          li.strike Contatneate stylesheets
+          li.strike Minify css
+          li.strike Make sprite sheets
+          li.strike Make sourcemaps
+          li.strike Mixin browser prefixes
+          li.strike Mixin IE crap
 
       section(data-bespoke-state="theme--white" data-bespoke-hash='post-processing-examples')
         h3 These are 
           br 
-          | post-processes:
-        ul
-          li.bullet Minification - CSSWring
-          li.bullet Browser prefixing - Autoprefixer
-          li.bullet REM to px - Pixrem
-          li.bullet Streamlining media queries - CSS MQPacker
-          li.bullet Can I Use? - Do I use
-          li.bullet CSS 3 polyfills for IE - CSS Grace
-          li.bullet CSS4 - cssnext
-          li.bullet More coming!
+          i post
+          |-processes:
 
+        ul
+          li Minification - 
+            a(href="https://github.com/hail2u/node-csswring") CSSWring
+            |  / 
+            a(href="https://github.com/css/csso") CSSO
+          li Browser prefixing - 
+            a(href="https://github.com/postcss/autoprefixer") Autoprefixer / 
+            a(href="https://github.com/ai/browserslist") Browserlist
+          li REM to px - 
+            a(href="https://github.com/robwierzbowski/node-pixrem") Pixrem
+          li Streamlining media queries - 
+            a(href="https://github.com/hail2u/node-css-mqpacker") CSS MQPacker
+          li CSS 3 polyfills for IE - 
+            a(href="https://github.com/cssdream/cssgrace") CSS Grace
+          li Can I Use? - 
+            a(href="https://github.com/anandthakker/doiuse") Do I use
+          li CSS4 - 
+            a(href="https://github.com/cssnext/cssnext") cssnext
+          li More 
+            a(href="https://github.com/postcss/postcss") postCSS
+            |  plugins coming!
+          li Fuck all that 
+            a(href="https://www.npmjs.com/package/gulp-postcss")  configuration
 
       section(data-bespoke-state="theme--watermellon" data-bespoke-hash='pleeease')
-        h2 Wicked Easy
+        h2 It's Wicked Easy
         h3 Just use 
           a(href='http://pleeease.io') Pleeease
-          
+
+      section(data-bespoke-state="theme--watermellon" data-bespoke-hash='pleeease')
+        h2 Pleeease
+        p
+          a(href='http://nodejs.org/download/') > Install Node.js <
+
         pre.language-bash
           code.
             $ npm install -g pleeease
-            
+
         pre.language-bash
           code.
             $ pleeease watch
@@ -63,31 +91,31 @@ html
       section(data-bespoke-state="theme--dark" data-bespoke-hash='diy')
         h2 Or, make your own...
 
-
       section(data-bespoke-state="theme--red" data-bespoke-hash='gulp')
         h2
           a(href='http://gulpjs.com/') Gulp 
           | time fuckers!
-        
+
         pre.language-bash
           code.
             $ npm install --global gulp
-      
+
       section(data-bespoke-state="theme--mint" data-bespoke-hash='gulpfile')
         h2 gulpfile.js
         pre.language-javascript
           code.
-            var sass = require('gulp-ruby-sass');
-            var autoprefixer = require('gulp-autoprefixer');
-            
-            gulp.task('styles', function() {
-              return gulp.src('app/styles/main.scss')
-                .pipe(sass())
-                .pipe(autoprefixer({browsers: ['last 3 versions']}))
-                .pipe(gulp.dest('dist/styles'));
-            });
+            var gulp = require('gulp');
+            var sass = require('gulp-sass');
+            var please = require('gulp-pleeease');
 
-      
+            gulp.task('css', function() {
+              return gulp.src('./sass/main.scss')
+                .pipe(sass())
+                .pipe(please())
+                .pipe(gulp.dest('./'));
+            });
+            gulp.task('default', ['css']);
+
       section(data-bespoke-hash='performance')
         h2 Performance
         ul
@@ -96,7 +124,7 @@ html
           li Less     150 ms
           li libsass  109 ms
           li PostCSS  36 ms
-          
+
         p
           a(href="http://ai.github.io/about-postcss/en/?full#36") Source
 
@@ -121,8 +149,8 @@ html
             a(href="http://www.sitepoint.com/introduction-gulp-js/") Introduction to Gulp JS
           li
             a(href="http://sass-guidelin.es/") Sass Guidelines
-            
-      section(data-bespoke-state="theme--mint" data-bespoke-hash='colophone')
+
+      section(data-bespoke-state="theme--watermellon" data-bespoke-hash='colophone')
         h2 Colophone
         ul
           li 

@@ -69,7 +69,7 @@ colors = {
   yellow: #ff0,
   gold: #f1c40f,
   magenta: magenta,
-  mint: #00f5a3,
+  mint: #0FA,
   slime: #67ff22,
   watermellon: #f63752,
   cyan: #46aeff,
@@ -77,7 +77,8 @@ colors = {
   red: red,
   butter: #FFFCAD,
   eggplant: #6E019D,
-  indego: indego
+  indigo: indigo,
+  brick: indianred
 }
 
 // Base typography vars
@@ -153,6 +154,9 @@ h4
   headings('sub')
   spacing($text, 0, 1, 1)
 
+ul
+  list-style: none
+
 p, ul, ol, pre
   spacing($outside, 0, 1)
 
@@ -161,6 +165,9 @@ p, ul, ol, pre
 
 .hairline
   font-weight: 100
+
+.strike
+  text-decoration: line-through
 
 a
   color: inherit
@@ -202,11 +209,17 @@ article
         h2, h3
           color: colors.charcoal
 
-        p, li
-          color: colors.graphite
-
         h4
           color: colors.graphite
+
+        p, li
+          color: colors.graphite
+          //font-weight: typeface.slab.weight.hairline
+
+        a
+          //color: colors.brick
+          //font-weight: typeface.slab.weight.hairline
+
 
       &--watermellon
         background-color: colors.watermellon
@@ -216,6 +229,10 @@ article
 
         p, li
           color: colors.graphite
+
+        a
+          color: colors.yellow
+          font-weight: typeface.sans.weight.hairline
 
       &--yellow
         background-color: colors.yellow
@@ -259,7 +276,7 @@ article
         h2, h3, h4
           color: colors.graphite
 
-        p
+        p, li
           color: colors.silver
 
       &--red
@@ -268,7 +285,7 @@ article
         h2, h3, h4
           color: colors.white
 
-        p
+        p, li
           color: colors.graphite
 
       &--mint
@@ -277,7 +294,7 @@ article
         h2, h3, h4
           color: colors.watermellon
 
-        p
+        p, li
           color: colors.charcoal
 
 .bespoke-slide
@@ -602,6 +619,7 @@ pre[class*="language-"].line-numbers .line-numbers-rows
   width: 25px
   height: 25px
   overflow: hidden
+  vertical-align: bottom
 
 .icon__cnt
   width: 100%
