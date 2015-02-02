@@ -5,10 +5,10 @@ html
     meta(name='viewport', content='width=device-width, initial-scale=1, maximum-scale=1')
     title Post Process
 
-    //link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,900italic,700italic,400italic,100italic')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto:400,100,300,500,700,900,900italic,700italic,400italic,100italic')
     link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700')
-    //link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700')
-    //link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Alfa+Slab+One')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Roboto+Condensed:400,300,700')
+    link(rel='stylesheet', type='text/css', href='http://fonts.googleapis.com/css?family=Alfa+Slab+One')
 
     link(rel='stylesheet', type='text/css', href='build/build.css')
 
@@ -22,11 +22,12 @@ html
           i pre-process 
           | the 
           i post-process
-
-      section(data-bespoke-state="theme--yellow" data-bespoke-hash='postcss')
+      
+      section(data-bespoke-state="theme--yellow" data-bespoke-hash='welcome')
         h2 Welcome fuckers
 
-      section(data-bespoke-state="theme--mint" data-bespoke-hash='pre-and-post-processors')
+      
+      section(data-bespoke-state="theme--mint" data-bespoke-hash='preprocess')
         h3.bold The 
           i pre
           |-process:
@@ -40,12 +41,13 @@ html
           li.strike Mixin browser prefixes
           li.strike Mixin IE crap
 
-      section(data-bespoke-state="theme--white" data-bespoke-hash='post-processing-examples')
+      
+      section(data-bespoke-state="theme--white" data-bespoke-hash='postprocess')
         h3 These are 
           br 
           i post
           |-processes:
-
+          
         ul
           li Minification - 
             a(href="https://github.com/hail2u/node-csswring") CSSWring
@@ -70,11 +72,13 @@ html
           li Fuck all that 
             a(href="https://www.npmjs.com/package/gulp-postcss")  configuration
 
-      section(data-bespoke-state="theme--watermellon" data-bespoke-hash='pleeease')
+      
+      section(data-bespoke-state="theme--watermellon" data-bespoke-hash='easy')
         h2 It's Wicked Easy
         h3 Just use 
           a(href='http://pleeease.io') Pleeease
 
+      
       section(data-bespoke-state="theme--watermellon" data-bespoke-hash='pleeease')
         h2 Pleeease
         p
@@ -83,14 +87,16 @@ html
         pre.language-bash
           code.
             $ npm install -g pleeease
-
+            
         pre.language-bash
           code.
             $ pleeease watch
-
+        p.hairline Let's check it out...
+            
       section(data-bespoke-state="theme--dark" data-bespoke-hash='diy')
         h2 Or, make your own...
 
+      
       section(data-bespoke-state="theme--red" data-bespoke-hash='gulp')
         h2
           a(href='http://gulpjs.com/') Gulp 
@@ -98,8 +104,7 @@ html
 
         pre.language-bash
           code.
-            $ npm install --global gulp
-
+            $ npm install --global gulp      
       section(data-bespoke-state="theme--mint" data-bespoke-hash='gulpfile')
         h2 gulpfile.js
         pre.language-javascript
@@ -115,7 +120,15 @@ html
                 .pipe(gulp.dest('./'));
             });
             gulp.task('default', ['css']);
+            
+      section(data-bespoke-state="theme--dark" data-bespoke-hash='gulpwp')
+        h2 Yeah, yeah...
+        h3.hairline Show us the WordPress version fucker
+        
+        p
+          a(href="https://github.com/brownerd/gulpwp") Gulp for WP + Sass + Pleeease
 
+      
       section(data-bespoke-hash='performance')
         h2 Performance
         ul
@@ -128,10 +141,7 @@ html
         p
           a(href="http://ai.github.io/about-postcss/en/?full#36") Source
 
-      section.emphatic-text(data-bespoke-backdrop='emphatic')
-        h2 Emphatic Slide!
-        h3 Powered by <a href="https://github.com/markdalgleish/bespoke-backdrop">bespoke-backdrop</a>
-
+      
       section(data-bespoke-hash='learn-more')
         h2 Learn more...
         ul
@@ -150,12 +160,13 @@ html
           li
             a(href="http://sass-guidelin.es/") Sass Guidelines
 
+      
       section(data-bespoke-state="theme--watermellon" data-bespoke-hash='colophone')
         h2 Colophone
         ul
           li 
             icon(name="ei-arrow-down" size="s") 
-            a(href="http://github.com/brownerd/postprocess") Source code
+            a(href="http://github.com/brownerd/postprocess") Presentation source
           li 
             icon(name="ei-sc-github" size="s") 
             a(href="https://github.com/markdalgleish/bespoke.js") Bespoke.js
@@ -174,9 +185,12 @@ html
           li 
             icon(name="ei-sc-github" size="s") 
             a(href="http://learnboost.github.io/stylus/") Stylus
-            
           li
             icon(name="ei-sc-github" size="s")
             a(href="http://www.google.com/fonts/specimen/Roboto+Slab") Roboto Slab
+            
+      
+      section(data-bespoke-state="theme--yellow" data-bespoke-hash='thanks')
+        h2 Thank you fuckers!
 
     script(src='build/build.js')
